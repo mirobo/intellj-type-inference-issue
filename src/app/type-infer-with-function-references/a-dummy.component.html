@@ -1,0 +1,63 @@
+<ng-container *ngIf="dataInferred$ | async as d">
+  <!--  both props resolve -> OK -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithPipe$ | async as d">
+  <!--  both props resolve -> OK -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithPipeAndMap$ | async as d">
+  <!--  only propA resolves -> OK -->
+  {{ d.propA }}
+
+  <!-- propB should be unresolved -> OK -->
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithFilter$ | async as d">
+  <!--  both props resolve -> OK -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithFilterFunction$ | async as d">
+  <!--  both props resolve -> OK -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithFilterFunctionReference$ | async as d">
+  <!-- both probs should resolve, but they don't -> FAIL -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithCustomPipeFunction1$ | async as d">
+  <!-- both probs should resolve, but they don't -> FAIL -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithCustomPipeFunction2$ | async as d">
+  <!-- both probs should resolve, but they don't -> FAIL -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
+
+<ng-container *ngIf="dataWithCustomPipeFunction3$ | async as d">
+  <!--  both props resolve -> OK -->
+  {{ d.propA }}
+
+  {{ d.propB }}
+</ng-container>
